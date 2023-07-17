@@ -31,6 +31,17 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::resource('/posts', \App\Http\Controllers\Api\PostController::class); // tambahkan ini
     Route::resource('/purchaseorder', \App\Http\Controllers\Api\PurchaseOrderController::class);
+    Route::resource('/tax', \App\Http\Controllers\Api\TbltaxController::class);
+    Route::resource('/supplier', \App\Http\Controllers\Api\TblsupplierController::class);
+
+    Route::resource('/productunit', \App\Http\Controllers\Api\TblproductunitController::class);
+    Route::resource('/productcategory', \App\Http\Controllers\Api\TblproductcategoryController::class);
+    Route::resource('/product', \App\Http\Controllers\Api\TblproductController::class);
+    Route::resource('/customer', \App\Http\Controllers\Api\TblcustomerController::class);
+    Route::resource('/sales', \App\Http\Controllers\Api\SalesController::class);
+    Route::resource('/receiveproduct', \App\Http\Controllers\Api\ReceiveProductController::class);
+    Route::resource('/invoice', \App\Http\Controllers\Api\InvoiceController::class);
+   
     // API route for logout user
     Route::get('/logout', [App\Http\Controllers\API\AuthController::class, 'logout']);
 });

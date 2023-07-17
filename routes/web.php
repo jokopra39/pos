@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('login-form', [App\Http\Controllers\LoginController::class, 'index']);
+Route::get('login', [App\Http\Controllers\LoginController::class, 'index']);
 Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
 Route::get('purchase-order', [App\Http\Controllers\PurchaseOrderController::class, 'index']);
 Route::get('sales', [App\Http\Controllers\SalesController::class, 'index']);

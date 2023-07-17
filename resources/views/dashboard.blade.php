@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Laravel 8 Form Example Tutorial</title>
+    <title>Fotokopi Mawar</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@0.7.4/dist/tailwind.min.css" rel="stylesheet">

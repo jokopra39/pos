@@ -35,9 +35,8 @@ class PurchaseOrderController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|string|max:155',
-            'content' => 'required',
-            'status' => 'required'
+            'product_id' => 'required',
+            'supplier_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -49,10 +48,13 @@ class PurchaseOrderController extends Controller
         }
 
         $post = PurchaseOrder::create([
-            'title' => $request->get('title'),
-            'content' => $request->get('content'),
-            'status' => $request->get('status'),
-            'slug' => Str::slug($request->get('title'))
+            'product_id' => $request->get('product_id'),
+            'quantity' => $request->get('quantity'),
+            'unit_price' => $request->get('unit_price'),
+            'sub_total' => $request->get('sub_total'),
+            'supplier_id' => $request->get('supplier_id'),
+            'tax_id' => $request->get('tax_id'),
+            'user_id' => $request->get('user_id')
         ]);
 
         return response()->json([

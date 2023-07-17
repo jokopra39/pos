@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Laravel 8 Form Example Tutorial</title>
+    <title>Fotokopi Mawar</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@0.7.4/dist/tailwind.min.css" rel="stylesheet">
@@ -60,6 +60,7 @@
                 success: function(data) {
                     console.log('Success!', data)
                     localStorage.setItem('token', data.access_token);
+                    localStorage.setItem('id', data.id);
                     //window.location.href = "/dashboard";
                     window.location.replace('/dashboard')
                     
