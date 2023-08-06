@@ -17,10 +17,10 @@
         integrity="sha256-AFAYEOkzB6iIKnTYZOdUf9FFje6lOTYdwRJKwTN5mks=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
     <style>
-      .select2-container--default .select2-selection--single {
-          width: 385px;
-      }
-  </style>
+        .select2-container--default .select2-selection--single {
+            width: 385px;
+        }
+    </style>
 </head>
 
 <body>
@@ -67,16 +67,19 @@
                 </thead>
             </table>
         </div>
-
-        <div class="modal fade" id="modal-po" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Product</label>
+            <div class="col-sm-10 flex">
+                <select class="select_product" style="width:300px;"></select>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-po" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content flex">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        
                     </div>
                     <div class="modal-body">
                         <div class="form-group row">
@@ -86,9 +89,9 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Product</label>
+                            <label for="hhh" class="col-sm-2 col-form-label">Product</label>
                             <div class="col-sm-10 flex">
-                                <select class="select_product w-full"></select>
+                                <select class="select_product" style="width:385px;"></select>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -142,7 +145,17 @@
 
         $('.select_product').select2({
             ajax: {
-                url: '/api/product',
+                url: 'http://127.0.0.1:8000/api/search',
+                type: 'POST',
+                data: function(params) {
+                    var query = {
+                        search: params.term,
+                        type: 'public'
+                    }
+
+                    // Query parameters will be ?search=[term]&type=public
+                    return query;
+                },
                 processResults: function(data) {
                     // Transforms the top-level key of the response object from 'items' to 'results'
                     let res = data.data
